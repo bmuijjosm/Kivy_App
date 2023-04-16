@@ -1,0 +1,177 @@
+<MainScreen>:
+    BoxLayout:
+    	cols: 1
+        orientation: 'vertical'
+        valign:'top' 
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 20
+            size_hint_y: 0.8 
+ 
+            Label:
+                text: 'Welcome Main Screen'
+                font_size: 30
+
+            Button:
+                text: 'Bulletin Board'
+                size_hint_y: None
+                height: 50
+                on_press: root.BulletinBoard()
+
+            Button:
+                text: 'Change Password'
+                size_hint_y: None
+                height: 50
+                on_press: root.manager.current = 'change_password'
+            Button:
+                text: 'Move In'
+                size_hint_y: None
+                height: 50
+                on_press: root.showmessage()
+        ScrollView:          
+            size_hint_y: 0.2
+            BoxLayout:     
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 125  # 设置红色背景，四个参数分别是R、G、B、A（透明度）
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+      
+                orientation: 'horizontal'
+                size_hint_x: None
+                width: self.minimum_width
+                spacing: 10  
+                Button:
+                    text: 'Fun1'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.BulletinBoard()
+                Button:
+                    text: 'Fun2'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.manager.current = 'change_password'
+                Button:
+                    text: 'Fun3'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.showmessage()
+                Button:
+                    text: 'Fun4'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.BulletinBoard()
+                Button:
+                    text: 'Fun5'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.manager.current = 'change_password'
+                Button:
+                    text: 'Fun6'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.showmessage()
+                Button:
+                    text: 'Fun7'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.BulletinBoard()
+                Button:
+                    text: 'Fun8'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.manager.current = 'change_password'
+                Button:
+                    text: 'Fun9'
+                    size_hint_x: None
+                    height: 30
+                    on_press: root.showmessage()
+<BulletinBoardScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Bulletin Board'
+            font_size: 30
+
+        Button:
+            text: 'Back to Main Screen'
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'main'
+
+<ChangePasswordScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Change Password'
+            font_size: 30
+
+        TextInput:
+            id: old_password_input
+            hint_text: 'Old Password'
+            password: True
+
+        TextInput:
+            id: new_password_input
+            hint_text: 'New Password'
+            password: True
+
+        Button:
+            text: 'Update Password'
+            on_press: root.update_password()
+        Button:
+            text: 'Back to Main Screen'
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'main'
+
+        Label:
+            id: update_label
+            color: 0, 1, 0, 1
+            size_hint_y: None
+            height: 30
+
+<MoveInScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Work Order'
+            font_size: 30
+
+        TextInput:
+            id: old_password_input
+            hint_text: 'work order'
+
+        Label:
+            text: 'Lot ID'
+            font_size: 30
+        TextInput:
+            id: new_password_input
+            hint_text: 'Lot ID'
+
+        Button:
+            text: 'Query'
+            on_press: root.update_password()
+        Button:
+            text: 'Back to Main Screen'
+            size_hint_y: None
+            height: 50
+            on_press: root.manager.current = 'main'
+
+        Label:
+            id: update_label
+            color: 0, 1, 0, 1
+            size_hint_y: None
+            height: 30

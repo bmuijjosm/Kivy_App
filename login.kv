@@ -1,0 +1,30 @@
+<LoginScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: 'Login'
+            font_size: 30
+
+        TextInput:
+            id: username_input
+            hint_text: 'Username'
+            font_size: 30
+
+        TextInput:
+            id: password_input
+            hint_text: 'Password'
+            password: True
+            font_size: 30
+
+        Button:
+            text: 'Login'
+            on_press: root.login()
+
+        Label:
+            id: error_label
+            color: 1, 0, 0, 1
+            size_hint_y: None
+            height: 30
